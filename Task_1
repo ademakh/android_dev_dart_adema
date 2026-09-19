@@ -1,0 +1,200 @@
+
+// task 1
+void main() {
+  String name = "Adema";
+  int age = 18;
+  double gpa = 3.45;
+  bool isStudent = true;
+  print ("name: $name\n age: $age y.o.\n gpa: $gpa\n is Teacher: ${!isStudent}");
+
+  String text1 = "Hello";
+  String? text2 = null;
+  print("text1: $text1");
+  print("text2: $text2");
+
+  int length1 = text1.length;
+  int length2 = text2?.length ?? 0;
+  print(length1);
+  print(length2);
+
+  String confirmedText = text2 ?? "default";
+  print("confirmed $confirmedText length: ${confirmedText.length}");
+
+  // TASK 1
+  // OUTPUT MULTIPLICATION TABLE  1-10
+  for (int j = 1; j <= 10; j++) {
+    int digit = j;
+
+    print("MULTIPLICATION TABLE for digit $digit");
+
+    for (int i = 1; i <= 10; i++) {
+      print("$digit * $i = ${i * digit}");
+    }
+  }
+
+  // TASK 2
+  // next day
+  int day = 28;
+  int month = 2;
+  int year = 2024;
+
+  bool isDivisibleBy400 = (year % 400 == 0);
+  bool isDivisibleBy100 = (year % 100 == 0);
+  bool isDivisibleBy4 = (year % 4 == 0);
+
+  bool isLeapYear;
+
+  if (isDivisibleBy400) {
+    isLeapYear = true;
+  } else if (isDivisibleBy100) {
+    isLeapYear = false;
+  } else if (isDivisibleBy4) {
+    isLeapYear = true;
+  } else {
+    isLeapYear = false;
+  }
+
+  int daysInCurrentMonth;
+
+  if (month == 1) {
+    daysInCurrentMonth = 31; // январь
+  } else if (month == 2) {
+    if (isLeapYear) {
+      daysInCurrentMonth = 29; // февраль в високосный год
+    } else {
+      daysInCurrentMonth = 28; // февраль в обычный год
+    }
+  } else if (month == 3) {
+    daysInCurrentMonth = 31; // март
+  } else if (month == 4) {
+    daysInCurrentMonth = 30; // апрель
+  } else if (month == 5) {
+    daysInCurrentMonth = 31; // май
+  } else if (month == 6) {
+    daysInCurrentMonth = 30; // июнь
+  } else if (month == 7) {
+    daysInCurrentMonth = 31; // июль
+  } else if (month == 8) {
+    daysInCurrentMonth = 31; // август
+  } else if (month == 9) {
+    daysInCurrentMonth = 30; // сентябрь
+  } else if (month == 10) {
+    daysInCurrentMonth = 31; // октябрь
+  } else if (month == 11) {
+    daysInCurrentMonth = 30; // ноябрь
+  } else {
+    daysInCurrentMonth = 31; // декабрь
+  }
+
+  bool dateIsValid = true;
+
+  if (day < 1) {
+    dateIsValid = false;
+  }
+  if (day > daysInCurrentMonth) {
+    dateIsValid = false;
+  }
+
+  if (dateIsValid == false) {
+    print("invalid date");
+  } else {
+    day = day + 1;
+
+    if (day > daysInCurrentMonth) {
+      day = 1;
+      month = month + 1;
+
+      if (month > 12) {
+        month = 1;
+        year = year + 1;
+      }
+    }
+
+    String formattedDay = day.toString().padLeft(2, '0');
+    String formattedMonth = month.toString().padLeft(2, '0');
+    print("$formattedDay.$formattedMonth.$year");
+  }
+
+  // TASK3
+  // Vowel Counter in a String
+  String phrase = "flutter mobile development";
+  String vowels = "aeiouAEIOU";
+  int vowelCount = 0;
+
+  for (int i = 0; i < phrase.length; i++) {
+    String currentLetter = phrase[i];
+
+    if (vowels.contains(currentLetter)) {
+      vowelCount = vowelCount + 1;
+    }
+  }
+
+  print('"$phrase" -> $vowelCount');
+
+  // TASK4
+  // Manual min & max finder
+  List<int> numbers = [14, 88, 3, 42, 99, 12, 67];
+
+  int min = numbers[0];
+  int max = numbers[0];
+
+  for (int i = 1; i < numbers.length; i++) {
+    if (numbers[i] < min) {
+      min = numbers[i];
+    }
+
+    if (numbers[i] > max) {
+      max = numbers[i];
+    }
+  }
+
+  print("max: $max, min: $min");
+
+  //--
+  List<int> numbers1 = [234, 34, 123, 44, 949, 112, 67];
+
+  int min1 = numbers1[0];
+  int max1 = numbers1[0];
+
+  for (int i = 1; i < numbers1.length; i++) {
+    if (numbers1[i] < min1) {
+      min1 = numbers1[i];
+    }
+
+    if (numbers1[i] > max1) {
+      max1 = numbers1[i];
+    }
+  }
+
+  print("max: $max1, min: $min1");
+
+  // TASK 5
+  // Prime Number Checker
+
+  bool isPrime(int number) {
+    if (number < 2) {
+      return false;
+    }
+
+    for (int i = 2; i < number; i++) {
+      if (number % i == 0) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  int number = 3;
+
+  if (isPrime(number)) {
+    print("prime number");
+  } else {
+    print("not prime number");
+  }
+
+
+
+
+   }
+
